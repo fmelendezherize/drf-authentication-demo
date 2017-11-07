@@ -3,10 +3,11 @@ Definition of urls for drf_authentication_demo.
 """
 
 from django.conf.urls import include, url
+from rest_framework_jwt.views import obtain_jwt_token
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = [
     # Examples:
@@ -17,5 +18,6 @@ urlpatterns = [
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/v1/auth/', include('authentication.urls')),
 ]

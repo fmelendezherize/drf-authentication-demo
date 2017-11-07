@@ -30,6 +30,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="authentication\admin.py" />
+    <Compile Include="authentication\apps.py" />
+    <Compile Include="authentication\migrations\__init__.py" />
+    <Compile Include="authentication\models.py" />
+    <Compile Include="authentication\tests.py" />
+    <Compile Include="authentication\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="authentication\views.py" />
+    <Compile Include="authentication\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="drf_authentication_demo\__init__.py" />
     <Compile Include="drf_authentication_demo\settings.py" />
@@ -37,9 +47,13 @@
     <Compile Include="drf_authentication_demo\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="authentication\templates\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="authentication\" />
+    <Folder Include="authentication\migrations\" />
+    <Folder Include="authentication\templates\" />
     <Folder Include="drf_authentication_demo\" />
   </ItemGroup>
   <ItemGroup>
