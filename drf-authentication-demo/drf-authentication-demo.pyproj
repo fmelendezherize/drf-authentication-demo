@@ -4,6 +4,10 @@
     <Name>drf-authentication-demo</Name>
     <RootNamespace>drf-authentication-demo</RootNamespace>
     <InterpreterId>MSBuild|drf-env|$(MSBuildProjectFullPath)</InterpreterId>
+    <PythonRunWebServerCommandArguments>
+    </PythonRunWebServerCommandArguments>
+    <PythonDebugWebServerCommandArguments>
+    </PythonDebugWebServerCommandArguments>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -17,7 +21,7 @@
     <WorkingDirectory>.</WorkingDirectory>
     <LaunchProvider>Django launcher</LaunchProvider>
     <DjangoSettingsModule>drf_authentication_demo.settings</DjangoSettingsModule>
-    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <WebBrowserUrl>http://localhost:5555</WebBrowserUrl>
     <OutputPath>.</OutputPath>
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
   </PropertyGroup>
@@ -34,6 +38,9 @@
     <Compile Include="authentication\apps.py" />
     <Compile Include="authentication\migrations\__init__.py" />
     <Compile Include="authentication\models.py" />
+    <Compile Include="authentication\serializers.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="authentication\tests.py" />
     <Compile Include="authentication\urls.py">
       <SubType>Code</SubType>
