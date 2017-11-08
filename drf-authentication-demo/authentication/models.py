@@ -19,30 +19,35 @@ class AccountManager(BaseUserManager):
             firstname=kwargs.get('firstname', ""),
             lastname=kwargs.get('lastname', ""),
         )
-
         account.set_password(password)
         account.save()
-
         return account
 
     def create_superuser(self, email, username, password=None):
         account = self.create_user(email=email, password=password, username=username)
-
         account.is_admin = True
+        #Custom Role
+        account.user_type = 'SU'
         account.save()
-        
         return account
 
 class Account(AbstractBaseUser):
+    type_account = (
+        ('SU', 'Super User'),
+        ('A', 'User Type A'),
+        ('B', 'User Type B'),
+        ('C', 'User Type C'),)
+
+    user_type = models.CharField(max_length=2,
+                                 choices=type_account,
+                                 default='C')
+    
     username = models.CharField(unique=True, max_length=50)
     email = models.EmailField(unique=True)
-
     firstname = models.CharField(max_length=100, blank=True)
     lastname = models.CharField(max_length=100, blank=True)
-
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
-
     is_admin = models.BooleanField(default=False)
 
     objects = AccountManager()

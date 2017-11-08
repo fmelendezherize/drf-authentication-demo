@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Account
 
 class AccountSerializer(serializers.ModelSerializer):
+    #Esto solamente se solicita para los verbos que modifican
     password = serializers.CharField(write_only=True, required=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
 
@@ -9,7 +10,8 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = (
             'id', 'email', 'username', 'date_created', 'date_modified',
-            'firstname', 'lastname', 'password', 'confirm_password')
+            'firstname', 'lastname', 'user_type', 'password', 'confirm_password')
+        #esto solamente aparece en los verbos de solo lectura
         read_only_fields = ('date_created', 'date_modified')
 
     def create(self, validated_data):
@@ -34,6 +36,7 @@ class AccountSerializer(serializers.ModelSerializer):
         '''
         Ensure the passwords are the same
         '''
+        #Cuando el serializer llama a is_valid entra aqui 
         if data['password']:
             print "Here"
             if data['password'] != data['confirm_password']:
