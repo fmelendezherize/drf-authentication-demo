@@ -14,7 +14,7 @@ class AccountList(APIView):
     serializer_class = AccountSerializer
     #Permiso para la Clase
     #Lo tengo como politica global ahora settings.py
-    #permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny,)
 
     def get(self, request, format=None):
         #No es necesario si configuro todo el APIView arriba or por settings.py
