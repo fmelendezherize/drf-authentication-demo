@@ -36,6 +36,9 @@
   <ItemGroup>
     <Compile Include="authentication\admin.py" />
     <Compile Include="authentication\apps.py" />
+    <Compile Include="authentication\helper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="authentication\migrations\__init__.py" />
     <Compile Include="authentication\models.py" />
     <Compile Include="authentication\serializers.py">
