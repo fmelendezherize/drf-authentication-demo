@@ -55,9 +55,20 @@
     <Compile Include="drf_authentication_demo\settings.py" />
     <Compile Include="drf_authentication_demo\urls.py" />
     <Compile Include="drf_authentication_demo\wsgi.py" />
+    <Compile Include="other_module\admin.py" />
+    <Compile Include="other_module\apps.py" />
+    <Compile Include="other_module\migrations\__init__.py" />
+    <Compile Include="other_module\models.py" />
+    <Compile Include="other_module\tests.py" />
+    <Compile Include="other_module\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="other_module\views.py" />
+    <Compile Include="other_module\__init__.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="authentication\templates\index.html" />
+    <Content Include="authentication\templates\_index.html" />
+    <Content Include="other_module\templates\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +76,9 @@
     <Folder Include="authentication\migrations\" />
     <Folder Include="authentication\templates\" />
     <Folder Include="drf_authentication_demo\" />
+    <Folder Include="other_module\" />
+    <Folder Include="other_module\migrations\" />
+    <Folder Include="other_module\templates\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="..\..\..\..\..\..\Programas\drf-env\">
